@@ -1,0 +1,83 @@
+{
+    "0": {
+        
+        
+        "experiment_name": "good_bad_antenna_classification",
+        "metadata":{
+            "tag": "v0.0.1",
+            "description": "Good / Bad antenna detection"
+        },
+
+        
+        "input_dataset": {
+            "type": "image_classification",
+            "classes": {
+                "images_dir": "inputs/good_bad_antenna_classification",
+                "class_names": [
+                    "Good Antenna",
+                    "Bad Antenna"]        
+            },
+            "train_ratio": 0.7,
+            "test_ratio": 0.10,
+            "holdout_ratio": 0.20,
+            "shuffle": true,
+            "preprocessing": {
+                "n_channels": 3,
+                "mean": 0.28604059698879553,
+                "std": 0.35302424451492237,
+                "transforms": [
+                    "ToTensor",
+                    "Normalize"]
+            }
+        },
+
+
+        "output":{
+            "dir": "outputs/good_bad_antenna_classification",
+            "save_model": true,
+            "embedding_plots": true,
+            "confusion_matrix": true,
+            "metrics": {
+                "precision": true,
+                "recall": true
+            },
+            "write_image_prediction": {
+                "train": true,
+                "test": true,
+                "holdout": true
+            }
+        },
+
+
+        "model": {
+            "architecture": "SiameseNet",
+            "embedding_network": {
+                "name": "default_embedding_network",
+                "in_channels": 3
+            }
+        },
+
+
+        "training": {
+            "n_epochs": 30,
+            "batch_size": 8,
+            "log_interval": 10,
+            "loss": {
+                "name": "TripletLoss",
+                "margin": 1.0
+            },
+            "optimizer": {
+                "name": "Adam",
+                "lr": 1e-3
+            },
+            "scheduler": {
+                "name": "StepLR",
+                "step_size": 8, 
+                "gamma": 0.1, 
+                "last_epoch": -1,
+                "verbose": false
+            }
+        }
+
+    }
+}
