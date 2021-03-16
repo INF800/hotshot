@@ -1,11 +1,8 @@
 {
-    "0": {
-        
-        
-        "experiment_name": "good_bad_antenna_classification",
+    "good_bad_antenna_classification": {
         "metadata":{
             "tag": "v0.0.1",
-            "description": "Good / Bad antenna detection"
+            "description": "Good / Bad antenna classification"
         },
 
         
@@ -15,19 +12,28 @@
                 "images_dir": "inputs/good_bad_antenna_classification",
                 "class_names": [
                     "Good Antenna",
-                    "Bad Antenna"]        
+                    "Bad Antenna"
+                ]       
             },
-            "train_ratio": 0.7,
-            "test_ratio": 0.10,
-            "holdout_ratio": 0.20,
-            "shuffle": true,
+            "split": {
+                "shuffle": true,
+                "ratio": {
+                    "train": 0.7,
+                    "test": 0.10,
+                    "holdout": 0.20
+                }
+            },
             "preprocessing": {
                 "n_channels": 3,
-                "mean": 0.28604059698879553,
-                "std": 0.35302424451492237,
-                "transforms": [
-                    "ToTensor",
-                    "Normalize"]
+                "transforms": [{
+                        "name": "ToTensor"
+                    },{
+                        "name": "Normalize",
+                        "params": {
+                            "mean": 0.28604059698879553,
+                            "std": 0.35302424451492237
+                        }
+                    }]
             }
         },
 
@@ -49,35 +55,44 @@
         },
 
 
-        "model": {
-            "architecture": "SiameseNet",
-            "embedding_network": {
-                "name": "default_embedding_network",
-                "in_channels": 3
-            }
-        },
 
-
-        "training": {
+        "training_experiments": {
+            "model": {
+                "architecture": "SiameseNet",
+                "embedding_network": {
+                    "name": "default_embedding_network",
+                    "params": {
+                        "in_channels": 3
+                    }
+                }
+            },
             "n_epochs": 30,
             "batch_size": 8,
             "log_interval": 10,
             "loss": {
                 "name": "TripletLoss",
-                "margin": 1.0
+                "params": {
+                    "margin": 1.0
+                }
             },
             "optimizer": {
                 "name": "Adam",
-                "lr": 1e-3
+                "params": {
+                    "lr": 1e-3
+                }
             },
             "scheduler": {
                 "name": "StepLR",
-                "step_size": 8, 
-                "gamma": 0.1, 
-                "last_epoch": -1,
-                "verbose": false
+                "params": {
+                    "step_size": 8, 
+                    "gamma": 0.1, 
+                    "last_epoch": -1,
+                    "verbose": true
+                }
             }
         }
 
+
+        
     }
 }

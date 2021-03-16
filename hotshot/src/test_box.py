@@ -6,3 +6,9 @@ with open('training_config.json', 'r') as fp:
     cfg = json.load(fp)
     print(cfg)
     pprint(Box(cfg))
+
+
+with open('inference_config.json', 'r') as fp:
+    cfg = json.load(fp)
+    print(cfg)
+    pprint(Box(cfg))
