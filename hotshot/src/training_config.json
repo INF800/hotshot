@@ -9,7 +9,7 @@
         "input_dataset": {
             "type": "image_classification",
             "classes": {
-                "images_dir": "inputs/good_bad_antenna_classification",
+                "images_dir": "inputs/good_bad_antenna_classification/data",
                 "class_names": [
                     "Good Antenna",
                     "Bad Antenna"
@@ -93,6 +93,5 @@
         }
 
 
-        
     }
 }
