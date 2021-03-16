@@ -1,0 +1,7 @@
+{
+    "Experiment": {
+        "Name": "antenna_detection",
+        "Tag": "v0.0.1",
+        "classes_dir": "inputs/antenna_classification_dataset"
+    }
+}
