@@ -3,8 +3,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,jupyternotebooks,virtualenv,macos,windows,linux
 
 ### Binary files ###
-inputs
-outputs
+store/inputs
+store/outputs
 
 
 ### JupyterNotebooks ###
