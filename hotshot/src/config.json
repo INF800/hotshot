@@ -1,0 +1,8 @@
+{
+    "train_experiments_to_run": [
+        "good_bad_antenna_classification"
+    ],
+    "inference_experiments_to_run": [
+        ""
+    ]
+}

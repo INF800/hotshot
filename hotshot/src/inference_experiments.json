@@ -1,0 +1,18 @@
+{
+    "all_experiments": [
+        {
+            "experiment_name": "good_bad_antenna_classification",
+            "input_dir": "store/inputs/inference/good_bad_antenna_classification/",
+            "output_dir": "store/outputs/inference/good_bad_antenna_classification/",
+            "model": {
+                "path": "path/to/saved/model/",
+                "params": {
+
+                }
+            },
+            "prediction_params": {
+                "threshold": 0.5
+            }
+        }
+    ]
+}
