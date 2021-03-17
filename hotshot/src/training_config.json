@@ -56,7 +56,7 @@
 
 
 
-        "training_experiments": {
+        "experiments": {
             "model": {
                 "architecture": "SiameseNet",
                 "embedding_network": {
