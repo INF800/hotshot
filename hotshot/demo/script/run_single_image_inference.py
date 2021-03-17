@@ -1,4 +1,3 @@
-from hotshot.xp import utils as xputils
 from hotshot.xp import Predict
 
 SAVED_MODEL_PATH = ...
